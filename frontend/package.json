@@ -1,0 +1,26 @@
+{
+  "name": "metachain-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 9094",
+    "build": "next build",
+    "start": "next start -p 9094"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.40.0",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "socket.io-client": "^4.7.5",
+    "three": "^0.165.0",
+    "viem": "^2.13.0",
+    "wagmi": "^2.10.0"
+  },
+  "browser": {
+    "@react-native-async-storage/async-storage": false,
+    "react-native": false,
+    "@react-native-community/netinfo": false,
+    "react-native-randombytes": false
+  }
+}

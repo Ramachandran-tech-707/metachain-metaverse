@@ -1,0 +1,264 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(0,245,255,0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  z-index: 1;
+}
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--cyan);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(0,245,255,0.2),
+    0 0 40px rgba(0,245,255,0.1);
+}
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ── Image ──────────────────────────────── */
+.imgWrap {
+  position: relative;
+}
+
+.image {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(2,4,8,0.8) 0%, transparent 50%);
+}
+
+.catBadge {
+  position: relative;
+  z-index: 2;
+  padding: 4px 10px;
+  background: rgba(2,4,8,0.8);
+  border: 1px solid rgba(0,245,255,0.3);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.rarityBadge {
+  position: relative;
+  z-index: 2;
+  padding: 4px 10px;
+  background: rgba(2,4,8,0.8);
+  border: 1px solid;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.imgActions {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+}
+.card:hover .imgActions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.likeBtn, .viewBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: rgba(2,4,8,0.85);
+  border: 1px solid rgba(0,245,255,0.2);
+  border-radius: 2px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.likeBtn:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+.viewBtn:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+/* ── Content ────────────────────────────── */
+.body {
+  padding: 20px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.id {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.blockchain {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.chainDot {
+  width: 6px;
+  height: 6px;
+  background: var(--purple);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--purple);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.creator {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.creator span {
+  color: var(--cyan);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-cyan), transparent);
+  margin-bottom: 16px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.priceGroup {}
+
+.priceLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.priceUSD {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.buyBtn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%);
+  color: var(--bg-void);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s;
+  box-shadow: 0 0 12px rgba(0,245,255,0.2);
+}
+.buyBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(0,245,255,0.5);
+}
+.buyBtnDisabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-dim);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.ownedBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  padding: 4px 8px;
+  border-radius: 2px;
+  background: rgba(0, 255, 136, 0.16);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--green);
+  text-transform: uppercase;
+}
+.imgTag { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.liked { color: var(--pink) !important; border-color: var(--pink) !important; }
+.img { position: relative; overflow: hidden; height: 220px; display: flex; align-items: flex-end; justify-content: space-between; padding: 12px; }

@@ -1,0 +1,188 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+/* ── Pure-CSS Particle Field ────────────────────────────────────
+   Each particle is a tiny div animated with CSS keyframes.
+   The browser composites these on the GPU — zero JS, zero main-thread work.
+──────────────────────────────────────────────────────────────── */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatDot linear infinite;
+  will-change: transform, opacity;
+}
+
+.particleCyan {
+  background: rgba(0, 245, 255, 0.7);
+  box-shadow: 0 0 4px rgba(0, 245, 255, 0.5);
+}
+
+.particlePurple {
+  background: rgba(191, 0, 255, 0.6);
+  box-shadow: 0 0 4px rgba(191, 0, 255, 0.4);
+}
+
+@keyframes floatDot {
+  0%   { transform: translateY(0px)   scale(1);   opacity: 0.7; }
+  25%  { transform: translateY(-18px) scale(1.1); opacity: 0.9; }
+  50%  { transform: translateY(-8px)  scale(0.9); opacity: 0.5; }
+  75%  { transform: translateY(-22px) scale(1.05);opacity: 0.8; }
+  100% { transform: translateY(0px)   scale(1);   opacity: 0.7; }
+}
+
+/* ── Glow blobs ─────────────────────────────────────────────── */
+.glowCyan {
+  position: absolute; top: 10%; right: -10%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,245,255,0.07) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.glowPurple {
+  position: absolute; bottom: -20%; left: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(191,0,255,0.09) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── Orb ────────────────────────────────────────────────────── */
+.orb {
+  position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+  width: 380px; height: 380px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1; animation: float 8s ease-in-out infinite;
+}
+.ring1 {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid rgba(0,245,255,0.25);
+  animation: rotate-slow 20s linear infinite;
+  box-shadow: 0 0 30px rgba(0,245,255,0.08);
+}
+.ring1::before {
+  content: ''; position: absolute; top: -4px; left: 50%;
+  width: 8px; height: 8px; background: var(--cyan); border-radius: 50%;
+  box-shadow: 0 0 12px var(--cyan); transform: translateX(-50%);
+}
+.ring2 {
+  position: absolute; inset: 30px; border-radius: 50%;
+  border: 1px solid rgba(191,0,255,0.3);
+  animation: rotate-reverse 15s linear infinite;
+}
+.ring2::before {
+  content: ''; position: absolute; bottom: -4px; left: 50%;
+  width: 6px; height: 6px; background: var(--purple); border-radius: 50%;
+  box-shadow: 0 0 10px var(--purple); transform: translateX(-50%);
+}
+.ring3 {
+  position: absolute; inset: 65px; border-radius: 50%;
+  border: 1px solid rgba(255,0,128,0.2);
+  animation: rotate-slow 10s linear infinite;
+}
+.core {
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    rgba(0,245,255,0.25) 0%, rgba(191,0,255,0.18) 40%, rgba(2,4,8,0.9) 70%);
+  border: 1px solid rgba(0,245,255,0.3);
+  box-shadow: 0 0 40px rgba(0,245,255,0.12), 0 0 80px rgba(191,0,255,0.08),
+              inset 0 0 40px rgba(0,245,255,0.06);
+}
+
+/* ── Content ────────────────────────────────────────────────── */
+.content {
+  position: relative; z-index: 2; max-width: 1000px;
+  animation: fadeInUp 0.8s ease-out both;
+}
+.eyebrow {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px;
+  color: var(--text-secondary); text-transform: uppercase;
+}
+.dot {
+  width: 4px; height: 4px; background: var(--cyan);
+  border-radius: 50%; box-shadow: 0 0 6px var(--cyan);
+}
+
+/* Heading */
+.heading {
+  display: flex; flex-direction: column;
+  font-family: var(--font-display); line-height: 1; margin-bottom: 28px;
+}
+.h1 {
+  font-size: clamp(32px,5vw,62px); font-weight: 400;
+  color: var(--text-secondary); letter-spacing: 4px;
+  animation: fadeInLeft 0.6s 0.1s ease-out both;
+}
+.h2 {
+  font-size: clamp(52px,9vw,110px); font-weight: 900; letter-spacing: -2px;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 60%, var(--pink) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: fadeInLeft 0.6s 0.2s ease-out both;
+  filter: drop-shadow(0 0 24px rgba(0,245,255,0.25));
+}
+.h3 {
+  font-size: clamp(32px,5vw,62px); font-weight: 800;
+  color: var(--text-primary); letter-spacing: 8px;
+  animation: fadeInLeft 0.6s 0.3s ease-out both;
+}
+
+.sub {
+  font-size: 17px; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 40px; max-width: 560px;
+  animation: fadeInUp 0.6s 0.4s ease-out both;
+}
+.cta {
+  display: flex; gap: 16px; margin-bottom: 60px; flex-wrap: wrap;
+  animation: fadeInUp 0.6s 0.5s ease-out both;
+}
+
+/* KPI row */
+.kpiRow {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+  background: var(--border-cyan); border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-md); overflow: hidden;
+  animation: fadeInUp 0.6s 0.6s ease-out both;
+}
+.kpi {
+  padding: 18px 14px; background: var(--bg-card);
+  text-align: center; transition: background 0.3s;
+}
+.kpi:hover { background: rgba(0,245,255,0.05); }
+.kpiLabel {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 1px;
+  color: var(--text-dim); text-transform: uppercase; margin-top: 6px;
+}
+
+/* Scroll hint */
+.scrollHint {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 3px; color: var(--text-dim);
+  animation: fadeInUp 1s 1s ease-out both;
+}
+.scrollLine {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--cyan), transparent);
+  animation: scanline 2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .orb { display: none; }
+  .kpiRow { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 520px) {
+  .cta { flex-direction: column; }
+  .kpiRow { grid-template-columns: repeat(2,1fr); }
+}

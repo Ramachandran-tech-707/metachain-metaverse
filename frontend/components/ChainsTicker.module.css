@@ -1,0 +1,20 @@
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--border-cyan);
+  border-bottom: 1px solid var(--border-cyan);
+  background: rgba(0,245,255,0.02);
+  padding: 13px 0;
+}
+.track {
+  display: flex; gap: 40px;
+  animation: marquee 35s linear infinite;
+  white-space: nowrap; width: max-content;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+.item { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.sym { font-family: var(--font-display); font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text-primary); }
+.val { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; }
+.up   { color: var(--green); }
+.down { color: var(--pink);  }
+.neutral { color: var(--text-secondary); }
+.sep { color: var(--text-dim); font-size: 10px; }

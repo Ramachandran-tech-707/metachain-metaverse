@@ -1,0 +1,58 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(2,4,8,0.88); backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.modal {
+  width: 100%; max-width: 420px;
+  background: var(--bg-panel); border: 1px solid var(--border-cyan);
+  border-radius: 20px; overflow: hidden; position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.8), 0 0 60px rgba(0,245,255,0.05);
+  animation: up 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes up { from{opacity:0;transform:translateY(20px) scale(0.97)} to{opacity:1;transform:none} }
+.topBar { height:2px; background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),var(--pink),transparent); }
+.header { display:flex; align-items:center; justify-content:space-between; padding:20px 22px 16px; }
+.title { font-family:var(--font-display); font-size:15px; font-weight:700; letter-spacing:2px; color:var(--text-primary); margin:0; text-transform:uppercase; }
+.closeBtn { width:30px; height:30px; display:flex; align-items:center; justify-content:center; background:rgba(0,245,255,0.05); border:1px solid rgba(0,245,255,0.15); border-radius:6px; color:var(--text-secondary); cursor:pointer; font-size:11px; transition:all 0.2s; }
+.closeBtn:hover { background:rgba(255,0,128,0.1); border-color:rgba(255,0,128,0.3); color:var(--pink); }
+.nftRow { display:flex; gap:14px; padding:0 22px 18px; align-items:center; }
+.thumb { width:64px; height:64px; border-radius:10px; flex-shrink:0; border:1px solid rgba(0,245,255,0.15); background-size:cover !important; background-position:center !important; }
+.nftInfo { flex:1; min-width:0; }
+.nftName { font-family:var(--font-display); font-size:14px; font-weight:600; letter-spacing:1px; color:var(--text-primary); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.nftBadges { display:flex; gap:6px; align-items:center; margin-bottom:5px; }
+.chainTag { font-family:var(--font-mono); font-size:9px; letter-spacing:1px; color:var(--text-dim); text-transform:uppercase; }
+.category { font-family:var(--font-mono); font-size:10px; letter-spacing:1px; color:var(--text-dim); }
+.sep { height:1px; background:linear-gradient(90deg,transparent,rgba(0,245,255,0.15),transparent); margin:0 22px; }
+.prices { padding:16px 22px; display:flex; flex-direction:column; gap:10px; }
+.priceRow { display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:12px; letter-spacing:0.5px; color:var(--text-secondary); }
+.totalRow { border-top:1px solid rgba(0,245,255,0.1); padding-top:10px; margin-top:4px; font-family:var(--font-display); font-size:13px; font-weight:600; color:var(--text-primary); letter-spacing:1px; }
+.totalETH { font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--cyan); text-align:right; }
+.totalUSD { font-family:var(--font-mono); font-size:11px; color:var(--text-dim); text-align:right; margin-top:2px; }
+.balPill { margin:0 22px 16px; padding:10px 14px; display:flex; align-items:center; gap:8px; border-radius:var(--radius-sm); border:1px solid; font-family:var(--font-mono); font-size:11px; letter-spacing:0.5px; }
+.balOk   { background:rgba(0,255,136,0.05);  border-color:rgba(0,255,136,0.2);  color:var(--green); }
+.balWarn { background:rgba(255,0,128,0.05);  border-color:rgba(255,0,128,0.2);  color:var(--pink);  }
+.balDot  { width:7px; height:7px; border-radius:50%; background:currentColor; flex-shrink:0; }
+.balAmt  { margin-left:auto; }
+.insuf   { font-size:9px; letter-spacing:1px; text-transform:uppercase; }
+.stepRow { display:flex; align-items:center; justify-content:center; gap:0; padding:0 22px 16px; }
+.stepItem { display:flex; align-items:center; gap:6px; }
+.stepNum { width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:10px; font-weight:700; background:rgba(0,245,255,0.05); border:1px solid rgba(0,245,255,0.15); color:var(--text-dim); transition:all 0.3s; }
+.sActive { background:rgba(0,245,255,0.15); border-color:var(--cyan); color:var(--cyan); box-shadow:0 0 10px rgba(0,245,255,0.3); }
+.sDone   { background:rgba(0,255,136,0.15); border-color:var(--green); color:var(--green); }
+.stepLabel { font-family:var(--font-mono); font-size:9px; letter-spacing:1px; color:var(--text-dim); text-transform:uppercase; }
+.stepLine { width:24px; height:1px; background:rgba(0,245,255,0.12); margin:0 4px; }
+.sLineDone { background:var(--green); }
+.actions { padding:4px 22px 22px; display:flex; flex-direction:column; gap:8px; }
+.cancelBtn { width:100%; padding:11px; background:none; border:1px solid rgba(0,245,255,0.12); border-radius:var(--radius-sm); font-family:var(--font-display); font-size:10px; letter-spacing:2px; color:var(--text-dim); text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
+.cancelBtn:hover { background:rgba(0,245,255,0.05); color:var(--text-secondary); }
+.stateBox { padding:24px 22px 28px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; }
+.spinner { width:40px; height:40px; border-radius:50%; border:3px solid rgba(0,245,255,0.15); border-top-color:var(--cyan); animation:spin 0.8s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg)} }
+.stateTitle { font-family:var(--font-display); font-size:14px; font-weight:600; letter-spacing:1px; color:var(--text-primary); text-transform:uppercase; }
+.stateDesc  { font-family:var(--font-body); font-size:13px; color:var(--text-secondary); line-height:1.5; }
+.successIcon { width:48px; height:48px; border-radius:50%; background:rgba(0,255,136,0.1); border:2px solid var(--green); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--green); box-shadow:0 0 20px rgba(0,255,136,0.3); animation:pop 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes pop { from{transform:scale(0)} to{transform:scale(1)} }
+.errorIcon { width:48px; height:48px; border-radius:50%; background:rgba(255,0,128,0.08); border:2px solid var(--pink); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--pink); }
